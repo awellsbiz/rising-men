@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon?: string;
+  variant?: "default" | "secondary";
+}
+
+const { title, description, icon, variant = "default" } = Astro.props;
+
+const variantClasses = {
+  default: "bg-base border-dark/20",
+  secondary: "bg-secondary border-dark/20 text-[color:var(--color-base)]",
+};
+
+const descriptionClasses =
+  variant === "secondary" ? "text-[color:var(--color-base)]/80" : "text-dark/80";
+---
+
+<article class={`rounded-md border p-4 shadow-sm sm:p-6 ${variantClasses[variant]}`}>
+  <div class="sm:flex sm:justify-between sm:gap-4 lg:gap-6">
+    {icon && (
+      <div class="sm:order-last sm:shrink-0">
+        <img
+          src={icon}
+          alt=""
+          class="size-16 rounded-full object-cover sm:size-[72px]"
+          loading="lazy"
+          aria-hidden="true"
+        />
+      </div>
+    )}
+
+    <div class={icon ? "mt-4 sm:mt-0" : ""}>
+      <h3 class="text-pretty text-lg font-medium">
+        {title}
+      </h3>
+      <p class={`mt-2 text-pretty text-sm ${descriptionClasses}`}>
+        {description}
+      </p>
+    </div>
+  </div>
+</article>

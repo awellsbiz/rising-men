@@ -1,0 +1,24 @@
+---
+import { siteConfig } from "../data/siteConfig";
+
+const { meta } = siteConfig;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={meta.description} />
+    <meta name="theme-color" content={meta.themeColor} />
+    <meta property="og:title" content={meta.title} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:image" content={meta.ogImage} />
+    <title>{meta.title}</title>
+  </head>
+  <body style="background-color: var(--color-base); color: var(--color-dark);">
+    <slot />
+  </body>
+</html>
