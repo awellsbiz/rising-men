@@ -1,0 +1,20 @@
+---
+import { siteConfig } from "../../data/siteConfig";
+const { hero } = siteConfig;
+---
+<!-- Hero -->
+<div class="relative h-120 md:h-[80dvh] bg-[url('src/assets/images/features/NC1.jpeg')] bg-cover bg-center bg-no-repeat rounded-2xl">
+  <div class="absolute inset-0 bg-black/50 rounded-2xl"></div>
+
+  <div class="relative flex flex-col items-center justify-center h-full">
+    <div class="mt-auto w-2/3 md:max-w-lg ps-5 pb-5 md:ps-10 md:pb-10 text-center">
+      <h1 class="text-xl md:text-3xl lg:text-5xl text-primary">
+        {hero.headline}
+      </h1>
+      <p class="text-lg md:text-xl lg:text-2xl text-base mt-4">
+        {hero.subheadline}
+      </p>
+    </div>
+  </div>
+</div>
+  <!-- End Hero -->

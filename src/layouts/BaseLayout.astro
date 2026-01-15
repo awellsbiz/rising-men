@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "../data/siteConfig";
+import "../styles/global.css";
 
 const { meta } = siteConfig;
 ---
@@ -20,5 +21,6 @@ const { meta } = siteConfig;
   </head>
   <body style="background-color: var(--color-base); color: var(--color-dark);">
     <slot />
+    <script type="module" is:inline>import 'preline/preline';</script>
   </body>
 </html>

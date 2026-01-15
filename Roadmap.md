@@ -1,7 +1,7 @@
 Rising Men Retreat Landing Page — Development Roadmap
 
-Role Acknowledged: Planning & Roadmap Agent
-Constraints: No implementation code. No file scaffolding. Architecture derived from prior planning session.
+Role Acknowledged: Planning & Roadmap Agent Constraints: No implementation code. No file
+scaffolding. Architecture derived from prior planning session.
 
 ---
 
@@ -10,19 +10,18 @@ Phase 0: Foundation & Configuration
 Goal: Establish the project foundation with clean slate and core configuration.
 
 Components/Files
-┌──────────────────────────────┬──────────────────────────────────────────────────────┐
-│ File │ Purpose │
-├──────────────────────────────┼──────────────────────────────────────────────────────┤
-│ src/data/siteConfig.ts │ Type interface + placeholder content │
-├──────────────────────────────┼──────────────────────────────────────────────────────┤
-│ src/styles/global.css │ Tailwind import + CSS theme variables │
-├──────────────────────────────┼──────────────────────────────────────────────────────┤
-│ src/layouts/BaseLayout.astro │ Rename existing Layout.astro, add SEO meta structure │
-└──────────────────────────────┴──────────────────────────────────────────────────────┘
-Tasks
+┌──────────────────────────────┬──────────────────────────────────────────────────────┐ │ File │
+Purpose │ ├──────────────────────────────┼──────────────────────────────────────────────────────┤ │
+src/data/siteConfig.ts │ Type interface + placeholder content │
+├──────────────────────────────┼──────────────────────────────────────────────────────┤ │
+src/styles/global.css │ Tailwind import + CSS theme variables │
+├──────────────────────────────┼──────────────────────────────────────────────────────┤ │
+src/layouts/BaseLayout.astro │ Rename existing Layout.astro, add SEO meta structure │
+└──────────────────────────────┴──────────────────────────────────────────────────────┘ Tasks
 
 1. Remove default Astro demo content (Welcome.astro, demo assets)
-2. Create folder structure (components/ui, components/sections, components/layout, data, assets/images/\*)
+2. Create folder structure (components/ui, components/sections, components/layout, data,
+   assets/images/\*)
 3. Define SiteConfig TypeScript interface
 4. Configure Tailwind 4 theme tokens in global.css
 5. Update BaseLayout with proper HTML shell + meta placeholders
@@ -79,34 +78,65 @@ Review UI primitives for consistency and reusability before building sections.
 
 ---
 
-Phase 2: Layout Components
+Here is a clean, correct refactor of Phase 2 based on everything we clarified about the header,
+Preline, DRY/KISS, and mobile-first behavior.
 
-Goal: Build navigation and layout wrapper components.
+This refactor removes the standalone mobile nav component entirely and aligns the roadmap with how
+the code should actually be built.
 
-Components/Files
-┌─────────────────┬──────────────────────────────────┬───────────────────────────┐
-│ Component │ Data Source │ Purpose │
-├─────────────────┼──────────────────────────────────┼───────────────────────────┤
-│ Header.astro │ siteConfig.brand, siteConfig.nav │ Logo + desktop navigation │
-├─────────────────┼──────────────────────────────────┼───────────────────────────┤
-│ MobileNav.astro │ siteConfig.nav │ Hamburger menu for mobile │
-└─────────────────┴──────────────────────────────────┴───────────────────────────┘
-Dependencies
+⸻
 
-- Phase 0 complete (siteConfig exists)
-- Phase 1 complete (Button component available)
+Phase 2: Layout Components (Refactored)
 
-Acceptance Criteria
+Goal
 
-- Header displays logo and nav links from config
-- MobileNav hidden on md: and above
-- Desktop nav hidden below md:
-- Smooth anchor scroll to sections
-- Minimal JavaScript (CSS-only toggle preferred, or minimal JS)
+Build a single, responsive navigation header and layout wrapper that works seamlessly across mobile
+and desktop without duplicated components.
+
+⸻
+
+Components / Files
+
+┌─────────────────┬──────────────────────────────────┬───────────────────────────────┐ │ Component │
+Data Source │ Purpose │
+├─────────────────┼──────────────────────────────────┼───────────────────────────────┤ │
+Header.astro │ siteConfig.brand, siteConfig.nav │ Responsive logo + navigation │
+└─────────────────┴──────────────────────────────────┴───────────────────────────────┘
+
+Note: Mobile and desktop navigation are handled within a single component using responsive utilities
+and a collapse/toggle pattern (Preline).
+
+⸻
+
+Dependencies • Phase 0 complete (siteConfig exists) • Phase 1 complete (Button component available)
+
+⸻
+
+Implementation Rules • One header component only • No separate mobile nav component • Mobile and
+desktop behavior controlled via: • Tailwind responsive classes (md:hidden, md:flex, etc.) • Preline
+hs-collapse (or equivalent minimal JS) • No duplicated navigation markup across files
+
+⸻
+
+Acceptance Criteria • Header renders: • Logo from siteConfig.brand • Navigation links from
+siteConfig.nav • Mobile behavior: • Hamburger toggle visible below md • Nav collapsed by default •
+Desktop behavior: • Full navigation visible at md and above • Hamburger hidden • Smooth anchor
+scrolling to sections • Minimal JavaScript (Preline preferred; no custom state management) • Header
+is reusable and imported once at the layout level
+
+⸻
+
+Explicit Non-Goals (to prevent regression) • ❌ No separate mobile nav component • ❌ No duplicated
+nav logic • ❌ No breakpoint-based conditional rendering in Astro • ❌ No separate mobile-only
+markup trees
+
+⸻
 
 🛑 STOP — Human Approval Required
 
-Verify navigation behavior on mobile and desktop before section implementation.
+Verify: • Mobile toggle behavior • Desktop navigation visibility • DRY / KISS compliance
+
+Approve before proceeding.
 
 ---
 
@@ -114,13 +144,9 @@ Phase 3: Hero Section
 
 Goal: Implement the primary above-the-fold hero section.
 
-Components/Files
-┌────────────┬─────────────────┬───────────────────┐
-│ Component │ Data Source │ Consumes │
-├────────────┼─────────────────┼───────────────────┤
-│ Hero.astro │ siteConfig.hero │ Container, Button │
-└────────────┴─────────────────┴───────────────────┘
-Dependencies
+Components/Files ┌────────────┬─────────────────┬───────────────────┐ │ Component │ Data Source
+│Consumes │ ────────────┼─────────────────┼───────────────────┤ │ Hero.astro │ siteConfig.hero
+│Container, Button │ └────────────┴─────────────────┴───────────────────┘ Dependencies
 
 - Phase 1 complete (Button, Container)
 - Phase 0 complete (siteConfig.hero defined)
@@ -144,13 +170,11 @@ Phase 4: Features Section
 
 Goal: Implement the feature grid showcasing retreat benefits.
 
-Components/Files
-┌────────────────┬───────────────────────┬─────────────────────────────────┐
-│ Component │ Data Source │ Consumes │
-├────────────────┼───────────────────────┼─────────────────────────────────┤
-│ Features.astro │ siteConfig.features[] │ Container, SectionHeading, Card │
-└────────────────┴───────────────────────┴─────────────────────────────────┘
-Dependencies
+Components/Files ┌────────────────┬───────────────────────┬─────────────────────────────────┐ │
+Component │ Data Source │ Consumes │
+├────────────────┼───────────────────────┼─────────────────────────────────┤ │ Features.astro │
+siteConfig.features[] │ Container, SectionHeading, Card │
+└────────────────┴───────────────────────┴─────────────────────────────────┘ Dependencies
 
 - Phase 1 complete (all UI primitives)
 - Phase 0 complete (siteConfig.features defined)
@@ -170,13 +194,10 @@ Phase 5: About Section
 
 Goal: Implement the about/story section with text and imagery.
 
-Components/Files
-┌─────────────┬──────────────────┬───────────────────────────┐
-│ Component │ Data Source │ Consumes │
-├─────────────┼──────────────────┼───────────────────────────┤
-│ About.astro │ siteConfig.about │ Container, SectionHeading │
-└─────────────┴──────────────────┴───────────────────────────┘
-Dependencies
+Components/Files ┌─────────────┬──────────────────┬───────────────────────────┐ │ Component │ Data
+Source │ Consumes │ ├─────────────┼──────────────────┼───────────────────────────┤ │ About.astro │
+siteConfig.about │ Container, SectionHeading │
+└─────────────┴──────────────────┴───────────────────────────┘ Dependencies
 
 - Phase 1 complete (Container, SectionHeading)
 - Phase 0 complete (siteConfig.about defined)
@@ -195,13 +216,11 @@ Phase 6: Schedule Section
 
 Goal: Implement the retreat agenda/timeline display.
 
-Components/Files
-┌────────────────┬───────────────────────┬─────────────────────────────────┐
-│ Component │ Data Source │ Consumes │
-├────────────────┼───────────────────────┼─────────────────────────────────┤
-│ Schedule.astro │ siteConfig.schedule[] │ Container, SectionHeading, Card │
-└────────────────┴───────────────────────┴─────────────────────────────────┘
-Dependencies
+Components/Files ┌────────────────┬───────────────────────┬─────────────────────────────────┐ │
+Component │ Data Source │ Consumes │
+├────────────────┼───────────────────────┼─────────────────────────────────┤ │ Schedule.astro │
+siteConfig.schedule[] │ Container, SectionHeading, Card │
+└────────────────┴───────────────────────┴─────────────────────────────────┘ Dependencies
 
 - Phase 1 complete (all UI primitives)
 - Phase 0 complete (siteConfig.schedule defined)
@@ -220,13 +239,10 @@ Phase 7: Contact Section (Tally.so)
 
 Goal: Implement the contact form section with Tally.so embed.
 
-Components/Files
-┌───────────────┬────────────────────┬───────────────────────────┐
-│ Component │ Data Source │ Consumes │
-├───────────────┼────────────────────┼───────────────────────────┤
-│ Contact.astro │ siteConfig.contact │ Container, SectionHeading │
-└───────────────┴────────────────────┴───────────────────────────┘
-Dependencies
+Components/Files ┌───────────────┬────────────────────┬───────────────────────────┐ │ Component │
+Data Source │ Consumes │ ├───────────────┼────────────────────┼───────────────────────────┤ │
+Contact.astro │ siteConfig.contact │ Container, SectionHeading │
+└───────────────┴────────────────────┴───────────────────────────┘ Dependencies
 
 - Phase 1 complete (Container, SectionHeading)
 - Phase 0 complete (siteConfig.contact.tallyFormId defined)
@@ -249,13 +265,9 @@ Phase 8: Footer
 
 Goal: Implement the site footer with links and social icons.
 
-Components/Files
-┌──────────────┬───────────────────┬───────────┐
-│ Component │ Data Source │ Consumes │
-├──────────────┼───────────────────┼───────────┤
-│ Footer.astro │ siteConfig.footer │ Container │
-└──────────────┴───────────────────┴───────────┘
-Dependencies
+Components/Files ┌──────────────┬───────────────────┬───────────┐ │ Component │ Data Source │
+Consumes │ ├──────────────┼───────────────────┼───────────┤ │ Footer.astro │ siteConfig.footer │
+Container │ └──────────────┴───────────────────┴───────────┘ Dependencies
 
 - Phase 1 complete (Container)
 - Phase 0 complete (siteConfig.footer defined)
@@ -274,13 +286,10 @@ Phase 9: Page Assembly & Integration
 
 Goal: Compose all sections into the landing page.
 
-Components/Files
-┌───────────────────────┬─────────────────────────────────────────┐
-│ File │ Purpose │
-├───────────────────────┼─────────────────────────────────────────┤
-│ src/pages/index.astro │ Import and render all sections in order │
-└───────────────────────┴─────────────────────────────────────────┘
-Dependencies
+Components/Files ┌───────────────────────┬─────────────────────────────────────────┐ │ File │
+Purpose │ ├───────────────────────┼─────────────────────────────────────────┤ │
+src/pages/index.astro │ Import and render all sections in order │
+└───────────────────────┴─────────────────────────────────────────┘ Dependencies
 
 - All previous phases complete
 
@@ -352,41 +361,18 @@ Self-Review Checklist
 ├──────────────────────────────┼───────────────────────────────────────────────────────────────────────┤
 │ Is anything premature? │ ✅ No — UI primitives before sections, sections before assembly │
 ├──────────────────────────────┼───────────────────────────────────────────────────────────────────────┤
-│ Is scope tightly controlled? │ ✅ Yes — each phase has specific deliverables and acceptance criteria │
+│ Is scope tightly controlled? │ ✅ Yes — each phase has specific deliverables and acceptance
+criteria │
 └──────────────────────────────┴───────────────────────────────────────────────────────────────────────┘
 
 ---
 
 Phase Dependency Graph
 
-Phase 0 (Foundation)
-│
-├──→ Phase 1 (UI Primitives)
-│ │
-│ ├──→ Phase 2 (Layout/Nav)
-│ │
-│ ├──→ Phase 3 (Hero)
-│ │
-│ ├──→ Phase 4 (Features)
-│ │
-│ ├──→ Phase 5 (About)
-│ │
-│ ├──→ Phase 6 (Schedule)
-│ │
-│ ├──→ Phase 7 (Contact)
-│ │
-│ └──→ Phase 8 (Footer)
-│
-└──────────────────┬───────────────────┘
-│
-▼
-Phase 9 (Assembly)
-│
-▼
-Phase 10 (Polish)
-│
-▼
-Phase 11 (SEO)
+Phase 0 (Foundation) │ ├──→ Phase 1 (UI Primitives) │ │ │ ├──→ Phase 2 (Layout/Nav) │ │ │ ├──→ Phase
+3 (Hero) │ │ │ ├──→ Phase 4 (Features) │ │ │ ├──→ Phase 5 (About) │ │ │ ├──→ Phase 6 (Schedule) │ │
+│ ├──→ Phase 7 (Contact) │ │ │ └──→ Phase 8 (Footer) │ └──────────────────┬───────────────────┘ │ ▼
+Phase 9 (Assembly) │ ▼ Phase 10 (Polish) │ ▼ Phase 11 (SEO)
 
 ---
 

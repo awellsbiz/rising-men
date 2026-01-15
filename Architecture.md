@@ -33,8 +33,7 @@ This is a retreat landing page template.
   │   │   └── Footer.astro
   │   │
   │   └── layout/                # Layout-specific components
-  │       ├── Header.astro
-  │       └── MobileNav.astro
+  │       └── Header.astro
   │
   ├── layouts/
   │   └── BaseLayout.astro       # Main HTML shell + meta/SEO
@@ -96,11 +95,7 @@ This is a retreat landing page template.
   Props/Data: Pulls from siteConfig.footer
   ────────────────────────────────────────
   Component: Header.astro
-  Purpose: Logo + nav (desktop)
-  Props/Data: Pulls from siteConfig.nav[]
-  ────────────────────────────────────────
-  Component: MobileNav.astro
-  Purpose: Hamburger menu (mobile)
+  Purpose: Logo + nav (responsive, includes mobile menu)
   Props/Data: Pulls from siteConfig.nav[]
   ---
   3. Data Model (siteConfig.ts)
