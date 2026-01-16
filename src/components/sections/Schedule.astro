@@ -4,26 +4,26 @@ const { outcomes, modalities } = siteConfig;
 ---
 
 <!-- Approach -->
-<div class="bg-neutral-900">
+<div class="bg-[url('src/assets/images/features/NC1.jpeg')] bg-cover bg-center bg-no-repeat">
     <!-- Approach -->
-    <div class="max-w-5xl px-4 xl:px-0 py-10 lg:pt-20 lg:pb-20 mx-auto">
+    <div class="max-w-full px-4 xl:px-0 py-10 lg:pt-20 lg:pb-20 mx-auto bg-black/70 rounded-2xl">
       <!-- Title -->
-      <div class="flex flex-col gap-6 lg:flex-row lg:gap-10 mb-10">
+      <div class="flex flex-col gap-6 lg:flex-row lg:gap-10 mb-10 max-w-5xl mx-auto">
         <div class="flex-1">
-          <h2 class="text-white font-semibold text-2xl md:text-4xl md:leading-tight">
+          <h2 class="text-primary font-heading font-semibold text-2xl md:text-4xl md:leading-tight text-center mb-4 flex flex-col items-center">
             {outcomes.heading}
           </h2>
           {outcomes.items.map((item) => (
-            <p class="mt-1 text-base bg-accent text-primary rounded-md p-2 text-center">{item}</p>
+            <p class="mt-1 text-accent bg-base text-dark rounded-md p-2 text-center lg:w-full md:w-1/2 md:mx-auto font-bold">{item}</p>
           ))}
         </div>
       
         <div class="flex-1">
-          <h2 class="text-white font-semibold text-2xl md:text-4xl md:leading-tight">
+          <h2 class="text-primary font-heading font-semibold text-2xl md:text-4xl md:leading-tight text-center mb-4">
             {modalities.heading}
           </h2>
           {modalities.items.map((item) => (
-            <p class="mt-1 text-base bg-accent text-primary rounded-md p-2 text-center">{item}</p>
+            <p class="mt-1 bg-base text-dark rounded-md p-2 text-center lg:w-full md:w-1/2 md:mx-auto font-bold">{item}</p>
           ))}
         </div>
       </div>
@@ -31,18 +31,18 @@ const { outcomes, modalities } = siteConfig;
 
       <!-- divider start   -->
       <span class="flex items-center mb-10">
-        <span class="h-px flex-1 bg-gray-300"></span>
+        <span class="h-px flex-1 bg-primary"></span>
       
-        <span class="shrink-0 px-4 text-base ">Schedule</span>
+        <span class="shrink-0 px-4 text-primary text-2xl font-heading ">Schedule</span>
       
-        <span class="h-px flex-1 bg-gray-300"></span>
+        <span class="h-px flex-1 bg-primary"></span>
       </span>
        <!-- divider end -->
   
       <!-- Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center max-w-5xl mx-auto">
         <div class="aspect-w-16 aspect-h-9 lg:aspect-none">
-          <img class="w-full object-cover rounded-xl" src="https://images.unsplash.com/photo-1587614203976-365c74645e83?q=80&w=480&h=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Features Image">
+          <img class="lg:w-full md:w-1/2 mx-auto object-cover rounded-xl" src="src/assets/images/features/meditating-placeholder.jpg" alt="Features Image">
         </div>
         <!-- End Col -->
   
@@ -50,18 +50,18 @@ const { outcomes, modalities } = siteConfig;
         <div>
             <!-- Heading -->
             <div class="mb-6">
-              <h3 class="text-[#ff0] text-xs font-medium uppercase">
-                Schedule
+              <h3 class="text-3xl md:text-4xl lg:text-5xl font-heading font-semibold uppercase text-center text-primary whitespace-nowrap">
+                May 28 - May 31, 2026
               </h3>
             </div>
             <!-- End Heading -->
           
             {siteConfig.schedule.map((item, index) => (
-              <div class="flex gap-x-5 ms-1">
+              <div class="flex gap-x-5 ms-1 bg-base rounded-lg p-4 mb-4">
                 <!-- Timeline Icon / Line -->
                 <div class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
                   <div class="relative z-10 size-8 flex justify-center items-center">
-                    <span class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-[#ff0] font-semibold text-xs uppercase rounded-full">
+                    <span class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-[#ff0] font-semibold text-xs uppercase rounded-full text-accent">
                       {index + 1}
                     </span>
                   </div>
@@ -71,12 +71,12 @@ const { outcomes, modalities } = siteConfig;
                 <!-- Content -->
                 <div class="grow pt-0.5 pb-8 sm:pb-12">
                   <div class="flex flex-col gap-1">
-                    <span class="text-xs uppercase tracking-wide text-neutral-500">
+                    <span class="text-md uppercase tracking-wide text-accent font-bold whitespace-nowrap">
                       {item.day} · {item.time}
                     </span>
           
-                    <p class="text-sm lg:text-base text-neutral-400">
-                      <span class="text-white font-medium">
+                    <p class="text-lg text-dark">
+                      <span class="text-dark font-bold">
                         {item.title}:
                       </span>{' '}
                       {item.description}

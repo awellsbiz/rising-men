@@ -12,15 +12,15 @@ const baseClasses =
   "inline-flex items-center justify-center rounded-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-base";
 
 const variantClasses = {
-  primary: "bg-primary text-dark hover:bg-accent",
+  primary: "bg-base text-dark hover:bg-accent hover:text-white",
   secondary:
-    "bg-secondary text-[color:var(--color-base)] hover:bg-primary",
+    "bg-dark text-primary font-heading hover:bg-primary hover:text-white",
 };
 
 const sizeClasses = {
-  sm: "px-4 py-2 text-sm",
-  md: "px-6 py-3 text-sm sm:text-base",
-  lg: "px-8 py-4 text-base",
+  sm: "px-4 py-2 text-2xl",
+  md: "px-6 py-3 text-2xl sm:text-primary font-heading",
+  lg: "px-8 py-4 text-2xl",
 };
 ---
 

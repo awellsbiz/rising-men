@@ -18,9 +18,25 @@ const { meta } = siteConfig;
     <meta property="og:description" content={meta.description} />
     <meta property="og:image" content={meta.ogImage} />
     <title>{meta.title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400..800&display=swap" rel="stylesheet">
   </head>
   <body style="background-color: var(--color-base); color: var(--color-dark);">
     <slot />
-    <script type="module" is:inline>import 'preline/preline';</script>
+    <script>
+      import 'preline/preline';
+      import { HSCollapse } from 'preline/preline';
+
+      // Initialize on first load
+      window.addEventListener('load', () => {
+        HSCollapse.autoInit();
+      });
+
+      // Re-initialize after Astro page transitions (View Transitions API)
+      document.addEventListener('astro:page-load', () => {
+        HSCollapse.autoInit();
+      });
+    </script>
   </body>
 </html>

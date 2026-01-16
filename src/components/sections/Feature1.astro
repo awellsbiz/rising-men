@@ -1,11 +1,13 @@
 ---
 import { siteConfig } from "../../data/siteConfig";
 const { about} = siteConfig;
+import Button from "../ui/Button.astro";
 ---
 
 
 <!-- Features -->
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto bg-secondary">
+  <h3 class="text-2xl font-bold text-primary text-center mb-5 font-heading">Men Advancing Together in Every Arena of Life.</h2>
     <div class="aspect-w-16 aspect-h-7">
       <img class="w-full object-cover rounded-xl" src="src/assets/images/features/NC1.jpeg" alt="Features Image">
     </div>
@@ -13,11 +15,11 @@ const { about} = siteConfig;
     <!-- Grid -->
     <div class="mt-5 lg:mt-16 grid lg:grid-cols-3 gap-8 lg:gap-12">
       <div class="lg:col-span-1">
-        <h2 class="font-bold text-2xl md:text-3xl text-primary">
-          {about.heading}
+        <h2 class="font-bold text-2xl md:text-3xl text-primary text-center font-heading">
+          A private mountain retreat just outside Asheville, NC.
         </h2>
         <p class="mt-2 md:mt-4 text-base">
-          {about.paragraphs[0]}
+          {about.paragraphs[0]} The retreat includes the following:
         </p>
       </div>
       <!-- End Col -->
@@ -26,18 +28,10 @@ const { about} = siteConfig;
         <div class="grid sm:grid-cols-2 gap-8 md:gap-12">
           <!-- Icon Block -->
           {siteConfig.features.map((feature) => (
-            <div class="flex gap-x-5">
+            <div class="flex gap-x-5 bg-dark rounded-lg p-4">
               {/* Replace this with your SVG or render feature.icon if you switch to inline SVG strings */}
-              <svg class="shrink-0 mt-1 size-6 text-blue-600 dark:text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="18" height="10" x="3" y="11" rx="2" />
-                <circle cx="12" cy="5" r="2" />
-                <path d="M12 7v4" />
-                <line x1="8" x2="8" y1="16" y2="16" />
-                <line x1="16" x2="16" y1="16" y2="16" />
-              </svg>
-          
               <div class="grow">
-                <h3 class="text-lg font-semibold text-primary">
+                <h3 class="text-lg font-semibold text-primary font-heading">
                   {feature.title}
                 </h3>
                 <p class="mt-1 text-base">
@@ -46,6 +40,10 @@ const { about} = siteConfig;
               </div>
             </div>
           ))}
+        </div>
+        <div class="flex justify-center mt-5">
+
+          <Button label="Book A Call Today" href="#tbd" variant="secondary" />
         </div>
       </div>
       <!-- End Col -->

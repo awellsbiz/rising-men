@@ -57,6 +57,15 @@ export interface SiteConfig {
     day?: string;
   }>;
 
+  // Make team typeface with link to social media profiles
+  team: Array<{
+    name: string;
+    title: string;
+    description: string;
+    image: string;
+    socials: Array<{ platform: string; href: string; icon: string }>;
+  }>;
+
   contact: {
     heading: string;
     subheading: string;
@@ -105,25 +114,47 @@ export const siteConfig: SiteConfig = {
   features: [
     {
       icon: 'TBD',
-      title: 'Embodied Masculinity',
+      title: '3 Days / 3 Nights Stay',
+      description:
+        'A fully guided, in-person initiation held in a private mountain home designed for depth, focus, and embodiment.',
+    },
+    {
+      icon: 'TBD',
+      title: 'Chef-Prepared Premium Meals',
+      description:
+        'All meals included. Fresh, nourishing, performance-focused food prepared daily to support recovery and clarity.',
+    },
+    {
+      icon: 'TBD',
+      title: 'Embodied Masculinity Training',
       description:
         'Practices rooted in presence, grounding, movement, and nervous system regulation.',
     },
     {
       icon: 'TBD',
-      title: 'Breathwork & Regulation',
+      title: 'Breathwork & Regulation Workshops',
       description:
         'Dynamic and sonic neural breathwork to release tension and access deeper awareness.',
     },
     {
       icon: 'TBD',
-      title: 'Shadow & Parts Work',
+      title: 'Facilitatied Shadow Work + Integration',
       description:
         'IFS‑informed exploration of patterns, stories, and inner drivers shaping behavior.',
     },
     {
       icon: 'TBD',
       title: 'Brotherhood & Accountability',
+      description: 'Sacred men’s council and accountability containers for integration and growth.',
+    },
+    {
+      icon: 'TBD',
+      title: 'Post Integration Support Circle ( optional, virtual  )',
+      description: 'Sacred men’s council and accountability containers for integration and growth.',
+    },
+    {
+      icon: 'TBD',
+      title: 'Private Mountain Accommodations',
       description: 'Sacred men’s council and accountability containers for integration and growth.',
     },
   ],
@@ -137,7 +168,7 @@ export const siteConfig: SiteConfig = {
     imageAlt: 'Men participating in a masculine embodiment retreat',
   },
   outcomes: {
-    heading: 'Intended Outcomes',
+    heading: 'What You Will Experience',
     items: [
       'Deeper sense of personal power, purpose, and emotional ownership',
       'Clear understanding of personal patterns, behaviors, and life potential',
@@ -148,7 +179,7 @@ export const siteConfig: SiteConfig = {
     ],
   },
   modalities: {
-    heading: 'Modalities & Key Experiences',
+    heading: 'The Modalities',
     items: [
       'Dynamic breathwork and sonic neural breathwork',
       'Masculine embodiment practices',
@@ -187,6 +218,50 @@ export const siteConfig: SiteConfig = {
       title: 'Integration & Return',
       description:
         'Sunrise silence hike, intention setting, integration guidance, and closing facilitator remarks.',
+    },
+  ],
+  team: [
+    {
+      name: 'Alex Vigilante',
+      title: 'Facilitator',
+      description:
+        'Alex is the founder of Vigilante Rising and a facilitator devoted to embodied leadership, nervous-system health, and men’s work. He bridges modern neuroscience with lived experience, creating grounded spaces for clarity, accountability, and self-mastery. Alex also leads the Charlotte Men’s Wellness Club, supporting men in moving from overthinking into embodied action and alignment.',
+      image: 'src/assets/images/about/Avigilante2.jpg',
+      socials: [
+        {
+          platform: 'Instagram',
+          href: 'https://www.instagram.com/vigilante_rising/',
+          icon: 'Instagram',
+        },
+        {
+          platform: 'LinkedIn',
+          href: 'https://www.linkedin.com/in/alexvigilante/',
+          icon: 'LinkedIn',
+        },
+      ],
+    },
+    {
+      name: 'Anthony "AJay" Wells',
+      title: 'Facilitator',
+      description:
+        'AJay is a men’s wellness guide, breathwork facilitator, and founder of Axis Ori. His work is rooted in nervous system regulation, disciplined self-leadership, and inner alignment. Drawing from lived experience, ancient practices, and modern science, AJay creates spaces for men to slow down, confront their patterns, and build a life led from clarity rather than impulse. His mission is simple: help men return to themselves and lead with intention.',
+      image: 'src/assets/images/about/Awells.jpg',
+      socials: [
+        { platform: 'Instagram', href: 'https://www.instagram.com/a.wells/', icon: 'Instagram' },
+        {
+          platform: 'LinkedIn',
+          href: 'https://www.linkedin.com/in/awells91/',
+          icon: 'LinkedIn',
+        },
+        { platform: 'Website', href: 'https://axisori.com/', icon: 'Web' },
+      ],
+    },
+    {
+      name: 'David Forren',
+      title: 'Chef',
+      description: 'David is a founder and CEO of The Rising Retreat.',
+      image: 'src/assets/images/about/Placeholder.jpg',
+      socials: [{ platform: 'Instagram', href: 'TBD', icon: 'TBD' }],
     },
   ],
   contact: {

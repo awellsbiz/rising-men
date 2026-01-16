@@ -1,0 +1,55 @@
+---
+import { Icon } from "astro-icon/components";
+import { siteConfig } from "../../data/siteConfig";
+
+const { team } = siteConfig;
+const iconMap: Record<string, string> = {
+  instagram: "mdi:instagram",
+  linkedin: "mdi:linkedin",
+  website: "mdi:web",
+};
+const getIconName = (platform: string) =>
+  iconMap[platform.toLowerCase()] ?? "mdi:web";
+---
+
+<!-- Team -->
+<div class="max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto flex flex-col items-center bg-secondary">
+    <!-- Title -->
+    <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+      <h2 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-primary font-heading">The Leadership</h2>
+      <p class="mt-1 text-gray-600 dark:text-base">The Rising Retreat is led by a team of experienced facilitators and chefs that are dedicated to helping you rise.</p>
+    </div>
+    <!-- End Title -->
+  
+    <!-- Grid -->
+    {team.map((member) => (
+        <div class="flex flex-col items-center text-center rounded-xl p-4 md:p-6 bg-base border border-gray-200 mb-4 w-fit">
+          <div class="w-full h-full flex justify-center">
+            <img class="w-fit rounded-full size-28 sm:size-48 md:size-28 object-cover object-center" src={member.image} alt={member.name} />
+          </div>
+          <div class="flex flex-col items-center text-center">
+
+          <h3 class="font-semibold text-secondary font-heading">{member.name}</h3>
+          <p class="text-xs uppercase text-accent">{member.title}</p>
+          <p class="mt-3 text-gray-500">{member.description}</p>
+
+          </div>
+    
+          <div class="mt-3 flex items-center justify-center gap-2">
+            {member.socials.map((social) => (
+              <a
+                href={social.href}
+                aria-label={social.platform}
+                class="inline-flex size-9 items-center justify-center rounded-full border border-dark/20 text-dark bg-accent transition hover:bg-primary/10 hover:text-dark"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon name={getIconName(social.platform)} class="size-4" />
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    <!-- End Grid -->
+  </div>
+  <!-- End Team -->
