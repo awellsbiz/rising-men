@@ -1,9 +1,13 @@
 ---
 import { siteConfig } from "../../data/siteConfig";
 const { hero } = siteConfig;
+import heroBackground from "../../assets/images/features/NC1.jpeg";
 ---
 <!-- Hero -->
-<div class="relative h-120 md:h-[80dvh] bg-[url('src/assets/images/features/NC1.jpeg')] bg-cover bg-center bg-no-repeat rounded-2xl">
+<div
+  class="relative h-120 md:h-[80dvh] bg-cover bg-center bg-no-repeat rounded-2xl"
+  style={`background-image: url(${heroBackground.src})`}
+>
   <div class="absolute inset-0 bg-black/50 rounded-2xl"></div>
 
   <div class="relative flex flex-col items-center justify-center h-full">

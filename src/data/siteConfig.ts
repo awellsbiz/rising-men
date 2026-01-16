@@ -1,3 +1,7 @@
+import avigilanteImage from '../assets/images/about/Avigilante2.jpg';
+import awellsImage from '../assets/images/about/Awells.jpg';
+import placeholderImage from '../assets/images/about/Placeholder.jpg';
+
 export interface SiteConfig {
   meta: {
     title: string;
@@ -226,7 +230,7 @@ export const siteConfig: SiteConfig = {
       title: 'Facilitator',
       description:
         'Alex is the founder of Vigilante Rising and a facilitator devoted to embodied leadership, nervous-system health, and men’s work. He bridges modern neuroscience with lived experience, creating grounded spaces for clarity, accountability, and self-mastery. Alex also leads the Charlotte Men’s Wellness Club, supporting men in moving from overthinking into embodied action and alignment.',
-      image: 'src/assets/images/about/Avigilante2.jpg',
+      image: avigilanteImage.src,
       socials: [
         {
           platform: 'Instagram',
@@ -245,7 +249,7 @@ export const siteConfig: SiteConfig = {
       title: 'Facilitator',
       description:
         'AJay is a men’s wellness guide, breathwork facilitator, and founder of Axis Ori. His work is rooted in nervous system regulation, disciplined self-leadership, and inner alignment. Drawing from lived experience, ancient practices, and modern science, AJay creates spaces for men to slow down, confront their patterns, and build a life led from clarity rather than impulse. His mission is simple: help men return to themselves and lead with intention.',
-      image: 'src/assets/images/about/Awells.jpg',
+      image: awellsImage.src,
       socials: [
         { platform: 'Instagram', href: 'https://www.instagram.com/a.wells/', icon: 'Instagram' },
         {
@@ -260,7 +264,7 @@ export const siteConfig: SiteConfig = {
       name: 'David Forren',
       title: 'Chef',
       description: 'David is a founder and CEO of The Rising Retreat.',
-      image: 'src/assets/images/about/Placeholder.jpg',
+      image: placeholderImage.src,
       socials: [{ platform: 'Instagram', href: 'TBD', icon: 'TBD' }],
     },
   ],
