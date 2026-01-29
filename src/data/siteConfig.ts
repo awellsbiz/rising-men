@@ -1,6 +1,7 @@
 import avigilanteImage from '../assets/images/about/Avigilante2.jpg';
 import awellsImage from '../assets/images/about/Awells.jpg';
 import placeholderImage from '../assets/images/about/Placeholder.jpg';
+import chefAlanImage from '../assets/images/about/ChefAlan.png';
 
 export interface SiteConfig {
   meta: {
@@ -93,7 +94,7 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   meta: {
-    title: 'The Rising Retreat',
+    title: 'The Rising Man Retreat',
     description:
       'Awaken the inner man. Reclaim your purpose. Become the man you were designed to be and step into your power.',
     ogImage: 'TBD',
@@ -106,7 +107,7 @@ export const siteConfig: SiteConfig = {
   },
   nav: [{ label: 'TBD', href: '#tbd' }],
   hero: {
-    headline: 'The Rising Retreat',
+    headline: 'The Rising Man Retreat',
     subheadline:
       'A rite of passage for the modern man ready to shed old patterns, face himself fully, and embody true masculinity.',
     backgroundImage: 'TBD',
@@ -196,28 +197,28 @@ export const siteConfig: SiteConfig = {
   },
   schedule: [
     {
-      day: 'Thursday',
+      day: 'Thur',
       time: '4:00 PM – 10:00 PM',
       title: 'Arrival & Initiation',
       description:
         'Arrival, introductions, opening dinner, facilitator initiation share, movement, breathwork, and sacred men’s council.',
     },
     {
-      day: 'Friday',
+      day: 'Fri',
       time: '8:00 AM – 10:00 PM',
       title: 'Regulation & Shadow',
       description:
         'Morning practices, nervous system education, shadow work, free time, sonic neural breathwork, and parts work.',
     },
     {
-      day: 'Saturday',
+      day: 'Sat',
       time: '8:00 AM – 10:00 PM',
       title: 'Embodiment & Expression',
       description:
         'Masculine embodiment practices, conscious communication, journaling, sonic neural breathwork, and integration circles.',
     },
     {
-      day: 'Sunday',
+      day: 'Sun',
       time: '6:00 AM – 10:30 AM',
       title: 'Integration & Return',
       description:
@@ -261,11 +262,18 @@ export const siteConfig: SiteConfig = {
       ],
     },
     {
-      name: 'David Forren',
-      title: 'Chef',
-      description: 'David is a founder and CEO of The Rising Retreat.',
-      image: placeholderImage.src,
-      socials: [{ platform: 'Instagram', href: 'TBD', icon: 'TBD' }],
+      name: 'Chef Alan',
+      title: 'Private Chef',
+      description:
+        'Alan is a private chef who prepares all meals for the retreat. From Austin, Texas he is a master of all things food and nutrition.',
+      image: chefAlanImage.src,
+      socials: [
+        {
+          platform: 'Instagram',
+          href: 'https://www.instagram.com/eat.with.alan/',
+          icon: 'Instagram',
+        },
+      ],
     },
   ],
   contact: {

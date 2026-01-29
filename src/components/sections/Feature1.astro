@@ -3,20 +3,26 @@ import { siteConfig } from "../../data/siteConfig";
 const { about} = siteConfig;
 import Button from "../ui/Button.astro";
 import nc1Image from "../../assets/images/features/NC1.jpeg";
+import Hero from './Hero.astro'
+import Schedule from "./Schedule.astro";
+import Team from "./Team.astro";
+import Contact from "./Contact.astro";
+import NewhouseAmen from '../../assets/images/about/NewHouseAmen.png'
 ---
 
 
 <!-- Features -->
 <div id="about" class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto bg-secondary">
-  <h3 class="text-2xl font-bold text-primary text-center mb-5 font-heading">Men Advancing Together in Every Arena of Life.</h2>
+  <Hero />
+  <h2 class="text-3xl sm:text-3xl md:text-5xl lg:text-8xl font-bold text-primary text-center mb-5 mt-10 font-heading">Men Advancing Together in Every Arena of Life.</h2>
     <div class="aspect-w-16 aspect-h-7">
-      <img class="w-full object-cover rounded-xl" src={nc1Image.src} alt="Features Image">
+      <img class="w-full object-cover rounded-xl" src={NewhouseAmen.src} alt="Features Image">
     </div>
   
     <!-- Grid -->
     <div class="mt-5 lg:mt-16 grid lg:grid-cols-3 gap-8 lg:gap-12">
       <div class="lg:col-span-1">
-        <h2 class="font-bold text-2xl md:text-3xl text-primary text-center font-heading">
+        <h2 class="font-bold text-2xl md:text-3xl text-primary text-center font-heading capitalize">
           A private mountain retreat just outside Asheville, NC.
         </h2>
         <p class="mt-2 md:mt-4 text-base">
@@ -50,5 +56,8 @@ import nc1Image from "../../assets/images/features/NC1.jpeg";
       <!-- End Col -->
     </div>
     <!-- End Grid -->
+     <Schedule />
+     <Team />
+     <Contact />
   </div>
   <!-- End Features -->

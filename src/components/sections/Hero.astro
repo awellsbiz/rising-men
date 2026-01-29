@@ -2,18 +2,24 @@
 import { siteConfig } from "../../data/siteConfig";
 const { hero } = siteConfig;
 import heroBackground from "../../assets/images/features/NC1.jpeg";
+import Newhouse2 from '../../assets/images/about/Newhouse2.jpeg';
 ---
 <!-- Hero -->
+<style>
+  .gradient-overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+  }
+</style>
 <div
   class="relative h-120 md:h-[80dvh] bg-cover bg-center bg-no-repeat rounded-2xl"
-  style={`background-image: url(${heroBackground.src})`}
+  style={`background-image: url(${Newhouse2.src})`}
 >
-  <div class="absolute inset-0 bg-black/50 rounded-2xl"></div>
+  <div class="absolute inset-0 rounded-2xl gradient-overlay"></div>
 
   <div class="relative flex flex-col items-center justify-center h-full">
-    <div class="mt-auto w-2/3 md:max-w-lg ps-5 pb-5 md:ps-10 md:pb-10 text-center">
-      <h1 class="text-5xl md:text-3xl lg:text-5xl text-primary font-heading font-bold mt-10">
-        {hero.headline}
+    <div class=" w-2/3 md:max-w-lg ps-5 pb-5 md:ps-10 md:pb-10 text-center">
+      <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-8xl text-primary font-heading font-bold mt-10">
+       The <span class="whitespace-nowrap">Rising Man</span> Retreat
       </h1>
       <p class="text-medium md:text-xl lg:text-2xl text-base mt-4 font-body text-left font-heading">
         {hero.subheadline}
