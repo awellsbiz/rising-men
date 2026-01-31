@@ -143,7 +143,7 @@ export const siteConfig: SiteConfig = {
     },
     {
       icon: 'TBD',
-      title: 'Facilitatied Shadow Work + Integration',
+      title: 'Facilitated Shadow Work + Integration',
       description:
         'IFS‑informed exploration of patterns, stories, and inner drivers shaping behavior.',
     },
